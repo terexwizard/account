@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+
+<f:view beforePhase="#{bKBMenuL.beforePhase}" afterPhase="#{bKBMenuL.afterPhase}" encoding="UTF-8" >
+<h:head>
+    <title>เมนู</title>
+    <h:outputStylesheet name="NSTDA.css" library="css" />
+    
+    <style>
+
+        .ui-tree {
+            width: 230px !important;
+            display:block;
+            white-space: normal !important;
+            border:0px ;
+        }
+
+        
+        .ui-tree-container{
+             white-space: normal !important;
+        }
+        
+        .menu
+        {
+           font:normal 12px/20px Tahoma;
+           color: #ffffff; 
+           background-color:#98ee59; 
+           /*background-image: url("#{resource['images/menu_bg.jpg']}");*/
+           
+           background-color: transparent !important;
+        }
+        
+        .menu .ui-state-hover{
+            /* background-color: #01a5c4 !important; */
+            background-image: url("#{resource['primefaces-nstda:images/ui-bg_highlight-soft_25_01a5c4_1x100.png']}")
+        }
+        
+        .menusub{
+            font:normal 12px/20px Tahoma;
+            color: #fff;
+        }
+        
+        .ui-tree-toggler{
+            background-image: url('images/i_topmenu.gif') !important;
+            background-position: 0px 5px;
+            text-align: center;
+        }
+        
+        .ui-treenode-children {
+            margin: 0;
+            padding: 0 0 0 3px !important;
+        }
+        
+        /*For menubar*/
+        .ui-widget-content {
+            border: 0px !important; 
+        }
+        .ui-menu-child{
+            background: #29569a !important; 
+        }
+    </style>
+    
+    <script type="text/javascript">   
+    //<![CDATA[    
+       function menuclick(name){
+//           alert('m1 '+name);
+           top.mn(name);
+       }
+       
+       function t(name){
+           
+           var o    = document.getElementById(name);
+           if(o.style.display == "none"){
+               o.style.display  = "inline";
+           }else{
+               o.style.display  = "none";
+           }
+           
+           
+       }
+       
+       menuclick('');
+       
+       function logout(){
+           top.logout();
+       }
+       
+       function emptypage(){
+           //alert("menu.xhtml");
+          
+            //document.getElementById('form1:goEmptyPage').click();
+            //top.frm_main.document.location   = "emptypage.xhtml";
+           
+           document.getElementById('form1:goemptypagelink').click();
+           
+           top.openmenuframe();
+           
+           top.mn("");
+           //alert(top.frm_main.document.location);
+       }
+       
+       function onNodeClick(node){
+           alert(node);
+           alert(node.data)
+           alert(node.menuname)
+       }
+       
+       //For menubar
+       function clickMenu(menucode, menupath, menusys, menuname){
+           //alert(">>terex"+menucode+" / "+ menupath+" / "+ menusys+" / "+ menuname);
+           
+           document.getElementById('form1:menucode').value = menucode;
+           document.getElementById('form1:menupath').value = menupath;
+           document.getElementById('form1:menusys').value = menusys;
+           document.getElementById('form1:menunames').value = menuname;
+           document.getElementById('form1:goPage').click();
+           
+       }
+    //]]>   
+    </script>
+</h:head>
+    
+<h:body style="background-color:#00a552;" >
+<h:form id="form1"  >
+        
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+       
+<ui:remove><!--
+   <tr>  
+<td valign="top" width="33px" colspan="3">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+<tr height="33px" >
+        <td width="185px">
+                <img src="images/menu/menu_bar.jpg" width="185px" height="33px"/></td>
+        <td width="33px">
+                <img src="images/menu/index_04.jpg" width="33px" height="33px"/></td>
+        <td id="top_content_bg">
+                <img src="images/menu/tran.gif" height="33px"/></td>
+</tr>
+</table>
+</td>
+</tr>            
+    --></ui:remove>
+        
+        <tr>
+            <td valign="top" width="33px"></td>
+                    
+            <td align="left" valign="top"   >
+                <ui:remove>
+                    <!--
+                <ui:include src="menulist.xhtml" >
+                    <ui:param name="basebean" value="#{bKBMenuL.menu}"/>
+                    
+                    <ui:param name="id" value="i0"/>
+                </ui:include>
+                <br/>
+                    -->
+                </ui:remove>
+                
+                <p:outputPanel id="mt" >
+                <p:tree id="treeSingle" value="#{bKBMenuL.root}" 
+                        var="menu" styleClass="menu" 
+                        selectionMode="single"   
+                        dynamic="true">  
+
+                    <p:ajax process="@this" update="@form" event="select" listener="#{bKBMenuL.onNodeSelect}" />
+                    <ui:remove>
+                        <!--
+                    <p:treeNode expandedIcon="ui-icon ui-icon-folder-open" 
+                        collapsedIcon="ui-icon ui-icon-folder-collapsed" >  
+                        <h:outputText value="#{menu}" />  
+                    </p:treeNode>  
+
+                    <p:treeNode type="document" icon="ui-icon ui-icon-document" >
+                        <h:outputText value="#{menu.menucode} : #{menu.menuname}"/>
+                     </p:treeNode>
+                        -->
+                    </ui:remove>
+                    
+                    <p:treeNode> 
+                        <table border="0" cellpadding="0" cellspacing="2" 
+                               style="table-layout:fixed;width:190px;" align="left;">
+                            <tr>
+                                <td style="vertical-align: text-top;">
+                                    <h:outputLabel value="#{menu}" style="font:normal 12px/20px Tahoma;" styleClass="nowrap"/>  
+                                </td>
+                            </tr>
+                        </table>  
+                    </p:treeNode>  
+
+                    <p:treeNode type="document" >
+                        
+                        <ui:remove>
+                            <!--
+                        <p:panelGrid styleClass="noBorders">
+                            <p:row>
+                                <p:column styleClass="menu" style="width:5px;vertical-align: baseline;">
+                                    <img src="images/i_yellow.gif" width="12" height="11"/>
+                                </p:column>
+                                <p:column styleClass="menu" style="vertical-align: text-top;white-space:nowrap;">
+                                    <h:outputLabel value="#{menu.menuname}" 
+                                       styleClass="menusub"/>
+                                </p:column>
+                            </p:row>
+                        </p:panelGrid>
+                            -->
+                        </ui:remove>    
+                        
+                        <table border="0" cellpadding="0" cellspacing="2" title="#{menu.menucode}"
+                               style="vertical-align: baseline;table-layout:fixed;width:190px;" 
+                               align="left;">
+                            <tr>
+                                <td style="vertical-align: text-top;width:13px;">
+                                    <img src="images/i_yellow.gif" width="12" height="11"/>
+                                </td>
+                                <td style="vertical-align: text-top;">
+                                    <p:outputLabel value="#{menu.menuname}" 
+                                                   styleClass="menusub"
+                                                   style="width: 100px;">
+                                    </p:outputLabel>
+                                    
+                                    <ui:remove><!--
+                                        <p:outputLabel value="#{menu.menucode} : #{menu.menuname}" 
+                                                   styleClass="menusub"
+                                                   style="width: 100px;">
+                                    </p:outputLabel>
+                                    --></ui:remove>
+                                </td>    
+                            </tr>
+                        </table> 
+                        
+                    </p:treeNode>
+                    
+                </p:tree>
+                </p:outputPanel>
+                
+                
+                <p:menubar id="menumodel" model="#{bKBMenuL.menumodel}" styleClass="menu" rendered="false"/>
+                
+                 <p:inputText id="menucode" value="#{bKBMenuL.menucode}" style="display: none;"/>
+                 <p:inputText id="menupath" value="#{bKBMenuL.menupath}" style="display: none;"/>
+                 <p:inputText id="menusys" value="#{bKBMenuL.menusys}" style="display: none;"/>
+                 <p:inputText id="menunames" value="#{bKBMenuL.menunames}" style="display: none;"/>
+                <p:commandButton  id="goPage" value="goPage" style="display: none;"
+                                 process="@this,menucode,menupath,menusys,menunames" update="@form" 
+                                 actionListener="#{bKBMenuL.goPage}" />
+                
+                <img src="images/i_topmenu.gif" style="padding-left: 2px;padding-right: 5px;"/>
+                <h:outputLabel id="menunamedisp" value="Logout" style="cursor: pointer;"
+                               onclick="logout();" 
+                               styleClass="menu"/>
+            </td>
+        <td valign="top" width="33px"></td>
+</tr>
+</table>
+        
+<br/>
+
+<ui:remove><!--
+<h:commandLink id="goEmptyPage" value="goEmptyPage" style="display: none;"
+               actionListener="#{bKBMenuL.goEmptyPage}" />
+           
+           
+<p:commandButton  id="goEmptyPage" value="goEmptyPage" style="display: none;"
+                  process="@this"
+                  actionListener="#{bKBMenuL.goEmptyPage}" ></p:commandButton>           
+           
+--></ui:remove>
+
+<p:commandButton value="" style="display: none;" id="rmp" immediate="true"
+                 process="@this" actionListener="#{bKBMenuL.resetMenuCall}" >
+</p:commandButton>
+
+<h:commandLink id="goemptypagelink" value="menu" 
+                action="emptypage.xhtml"
+                actionListener="#{bKBMenuL.goEmptyPage}"
+                style="display: none;"
+                target="frm_main"   />
+
+<p:outputPanel id="scmenupan" rendered="#{not empty bKBMenuL.re}">
+
+<script type="text/javascript">
+//<![CDATA[  
+
+top.changeMenu("#{bKBMenuL.re}");
+top.mn('#{bKBMenuL.menuname}');
+
+//]]>   
+</script>
+</p:outputPanel>
+
+<ui:remove><!--
+//window.status = "re..";
+
+//var path = "";
+//alert(path);
+//alert('aa');
+//window.status += "1,";
+document.getElementById("form1:rmp").click();
+--></ui:remove>  
+
+</h:form>
+    
+   <script type="text/javascript">   
+    //<![CDATA[    
+       
+       function lar(){
+           
+       }
+    //]]>   
+    </script>
+    
+</h:body>
+</f:view>
+    
+</html>
+

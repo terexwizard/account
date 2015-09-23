@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+<f:view beforePhase="#{bKBMenuL.beforePhase}" afterPhase="#{bKBMenuL.afterPhase}" encoding="UTF-8" >
+    
+<h:head>
+    <title>ระบบงาน</title>
+    <h:outputStylesheet name="NSTDA.css" library="css" />
+    
+    <style type="text/css" >
+    
+    </style>
+    
+    <script type="text/javascript">   
+    //<![CDATA[    
+       
+       var islogout = false;
+       
+       function acar(){
+           //alert('ac');
+           document.getElementById('form1:sam').click();
+           
+           //
+       }
+       function clearmn(){
+           try{
+                var o = document.getElementById('form1:menunamedisp');
+                o.innerHTML  = "";
+           }catch(e){}
+       }
+       function mn(name){
+           //alert('m3 '+name);
+           
+           try{
+                var o = document.getElementById('form1:menunamedisp');
+                o.innerHTML  = "";
+           }catch(e){}
+           document.getElementById('form1:menuname').value  = name;
+           
+       }
+       
+       
+       function toggle_menu(){
+            top.toggle_menu();
+       }
+       
+       function setimgtogg ( stat ){
+          if (stat== 0) {
+              //รูปลบ
+//              document.getElementById("imgtogg").src="images/twisty-clsd.png";
+              document.getElementById("imgtogg").src="#{resource['images/i_close.png']}";
+          }else{
+              //รูปบวก
+//              document.getElementById("imgtogg").src="images/twisty-open.png";
+              document.getElementById("imgtogg").src="#{resource['images/i_open.png']}";
+          }
+        }
+        
+        function logout(){
+            islogout    = true;
+            document.getElementById('form1:lo').click();
+        }
+        
+        
+        function unloadbody(){
+            
+            if(!islogout){
+                document.getElementById('form1:samu').click();
+
+                alert("ออกจากระบบเรียบร้อยแล้ว");
+            }
+
+        }
+        
+        function unloadbodyb(){
+            
+            //alert(islogout);
+            
+           
+            if(!islogout){
+                //$(window).unbind('unload');
+                window.onunload     = null;
+
+                document.getElementById('form1:samub').click();
+
+                alert("ออกจากระบบเรียบร้อยแล้ว.");
+
+                //window.showModalDialog("../x.gif","aaa");
+                
+               //return "ต้องการปิดระบบ ใช่หรือไม่";
+            }
+                       
+        }
+        
+        function onclose(){
+            //alert("close");
+            
+            return false;
+        }
+        
+        function loadinit(){
+            
+            acar();
+                        
+            window.onunload     = unloadbody;
+
+            window.onbeforeunload   = unloadbodyb;
+            
+            
+        }
+        
+    //]]>   
+    </script>
+</h:head>
+<h:body onload="loadinit();">
+    <h:form id="form1"  >
+        
+        <table width="100%" height="90px" border="0" cellpadding="0" cellspacing="0" id="header_bg">
+                <tr>
+                    <td width="480px" ></td>
+                    <td width="102px" ></td>
+                    <td  ></td>
+                </tr>
+                    
+                <tr>
+                    <td  colspan="2">
+                                <img src="#{resource['images/header/index_01.jpg']}" width="582px" height="60px"/></td>
+                                
+                        <td style="padding-right:5px;" align="right" class="font_blue" >
+                            <div align="right">
+                                <table border="0" cellpadding="0" cellspacing="0" >
+                                    <tr><td><h:outputText value="ผู้ใช้งาน : #{bKBUser.userid} (#{bKBUser.usertitle}#{bKBUser.username})" rendered="#{not empty bKBUser.username}" /></td><td width="10px">&nbsp;</td></tr>
+                                    <tr><td><h:outputText value="บทบาท : #{bKBUser.userproperties.regRoletypeName}" rendered="#{not empty bKBUser.userproperties.regRoletypeName}" /></td></tr>
+                            </table></div></td>
+                </tr>
+                <tr>
+                    <td style="background-image:url(#{resource['images/header/index_02.jpg']});" height="30px">
+                        <img id="imgtogg" name="imgtogg" src="#{resource['images/i_close.png']}" title="เมนู" alt="menu"
+                             onclick="toggle_menu();" 
+                             style="cursor: hand;vertical-align: top;padding-left: 10px;padding-bottom: 3px;" />
+                    </td>
+                             
+                    <td style="padding-right:5px;" align="right" class="font_white" colspan="2">
+                            <div align="right"><table border="0" cellpadding="0" cellspacing="0" >
+                                <tr><td><h:outputLabel id="menunamedisp" value="#{bKBMenuL.menuname}" ></h:outputLabel></td>
+                                    <td width="10px">&nbsp;</td></tr>
+                            </table></div></td>
+                </tr>
+        </table>
+        
+        <ui:remove><!--
+            
+                   <img src="images/header/index_02.jpg" width="582px" height="30px"/>
+                   
+                   --></ui:remove>  
+        
+        <ui:remove><!--
+            <img src="images/bullet_orange2.gif" width="10px" height="11px" />
+                   
+        user : #{bKBUser.username} (#{bKBUser.userid})  pv : #{bKBUser.userprovincecode}  off : #{bKBUser.useroffcode}
+        #{bKBUser.userpvname} / #{bKBUser.office.offnameth}, #{bKBUser.office.offpvname}
+        
+        <p:commandButton id="cs" value="check ss" actionListener="#{bKBMenuL.checkSession}" ></p:commandButton>
+        <p:commandButton id="cu" value="check us" actionListener="#{bKBMenuL.checkUser}" ></p:commandButton>
+         &nbsp;
+                   
+                  <p:commandButton id="m" value="menu" onclick="document.getElementById('form3:lm').click();" type="button" ></p:commandButton>
+        <p:commandButton id="o" value="ออกจากระบบ" onclick=" document.getElementById('form2:lo').click();" type="button"  ></p:commandButton>
+        
+                   
+            <p:commandButton value="sam" id="sam" process="@this menuname" update="menunamedisp" immediate="true"  
+                         actionListener="#{bKBMenuL.sam}" style="display: none" ></p:commandButton>       
+         --></ui:remove>
+        
+        <h:commandLink id="lo" value="ออกจากระบบ" actionListener="#{bKBMenuL.logout}" target="_top" immediate="true" style="display: none" ></h:commandLink>
+        <h:commandLink id="lm" value="เมนู" action="menu.xhtml" target="framem" style="display: none" ></h:commandLink>
+        
+        <p:commandButton value="sam" id="sam" process="@this menuname" update="menunamedisp" immediate="true"  
+                         actionListener="#{bKBMenuL.sam}" style="display: none" ></p:commandButton>  
+                         
+        <p:commandButton value="samu" id="samu" process="@this" immediate="true" 
+                         actionListener="#{bKBMenuL.samu}" style="display: none" ></p:commandButton>
+        <p:commandButton value="samub" id="samub" process="@this" immediate="true"
+                         actionListener="#{bKBMenuL.samub}" style="display: none" ></p:commandButton>
+                         
+        <h:inputHidden id="menuname" value="#{bKBMenuL.menuname}" />
+    </h:form>
+    
+    
+    
+    
+    <h:panelGrid style="display: none">  
+       
+    <h:form id="form2" target="_top">
+        <p:commandButton id="lo" value="ออกจากระบบ" actionListener="#{bKBMenuL.logout}" ajax="false"  ></p:commandButton>
+    </h:form>
+    <h:form id="form3" target="framem">
+        <p:commandButton id="lm" value="menu"  ajax="false" action="menu.xhtml"  ></p:commandButton>
+    </h:form>
+   
+    </h:panelGrid>
+   
+    
+</h:body>
+        
+</f:view>
+</html>
+

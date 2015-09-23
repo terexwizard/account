@@ -1,0 +1,153 @@
+body{ 
+margin:0; 
+padding:0;
+background-color:#ffffff;
+} 
+
+img { 
+border: 0; 
+}
+
+/*
+.marquee {
+height:40%;
+padding:5px;
+/ *background-color: yellowgreen;
+border: 20px solid rgba(0,0,0,0.3);* /
+white-space: nowrap; 
+overflow: hidden;
+
+/ * Safari and Chrome  * /
+overflow-x:-webkit-marquee;
+-webkit-marquee-direction: backwards;
+-webkit-marquee-style: scroll;
+-webkit-marquee-speed: slow;
+-webkit-marquee-increment: small;
+-webkit-marquee-repetition: infinite;
+
+/ * W3C  * /
+overflow-x: marquee-line;
+marquee-direction: forward;
+marquee-style: scroll;
+marquee-speed: slow;
+marquee-play-count: infinite;
+}
+*/
+
+#login_bg{
+	background-image: url("#{resource['images/loginnew1/bg.jpg']}");
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+#login01{
+	background-image: url("#{resource['images/loginnew1/login_01.png']}");
+	background-repeat:no-repeat;
+	width:498px;
+	height:408px;
+}
+
+#login02{
+	background-image: url("#{resource['images/loginnew1/login_02.png']}");
+	background-repeat:no-repeat;
+	width:317px;
+	height:408px;
+}
+
+/*
+#header_bg{
+	background-image: url("# {resource['images/loginnew1/index_03.jpg']}");
+	background-repeat:repeat-x;
+}
+
+#menu_bg{
+	background-image: url("# {resource['images/loginnew1/menu_bg.jpg']}");
+}
+
+#top_content_bg{
+	background-image: url("# {resource['images/loginnew1/index_05.jpg']}");
+	background-repeat:repeat-x;
+}
+
+#content_bg{
+	background-image:url("# {resource['images/loginnew1/image.jpg']}");
+	background-repeat:no-repeat;	
+	background-position:right bottom;
+}
+*/
+/*---------------------------------- Input_box ------------------------------------------------*/
+
+.input_box
+{
+	font:bold 12px Tahoma;
+	color: #b94d04;
+	background-color:#white;
+}
+
+/*---------------------------------- text ����� ------------------------------------------------*/
+
+
+.font_white{
+	font: bold 12px tahoma;
+	color: #ffffff;
+	line-height:20px;
+}
+
+
+.font_news{
+	font: normal 12px tahoma;
+	color: #104eac;
+	line-height:20px;
+}
+
+#copyright{
+	font: normal 11px tahoma;
+	color: #000000;
+}
+
+/*-------------------------------------- link --------------------------------------------------*/
+/*
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover{
+	background-image:url("# {resource['images/loginnew1/bullet01.gif']}");	
+	background-position:0px 3px;
+	padding-left:15px;
+	font: bold 12px Tahoma;
+}
+
+.submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover
+{
+	background-image:url("# {resource['images/loginnew1/bullet02.gif']}");
+	background-position:17px 3px;
+	padding-left:32px;
+	font: normal 12px Tahoma;
+}
+*/
+
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover, .submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover{
+	background-repeat:no-repeat;
+	color: #ffffff;
+	text-decoration: none;	
+	line-height:20px;
+}
+
+.headmenu a:hover, .submenu a:hover
+{
+	color: #ffba13;
+}
+
+.forget:link , #forget:visited , #forget:active
+{
+	font:normal 13px/155% Tahoma;
+	color:#FFFFFF;	
+	text-decoration: none;
+}
+
+.forget:hover
+{
+    font:normal 13px/155% Tahoma;
+	color: #fff776;	
+	text-decoration: none;
+	}
+
+#navlist { list-style-image: url("#{resource['images/loginnew1/arrow.gif']}"); }

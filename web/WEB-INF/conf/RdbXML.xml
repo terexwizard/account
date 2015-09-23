@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : RdbXML.xml
+    Created on : 17/07/2555, 20:53 
+    Author     : xtra
+    Description:
+        Purpose of the document follows.
+-->
+
+<RdbXML>
+    
+    <Rdb>
+        <TranCode>example_rdb1</TranCode> 
+        <Description> rdb ตัวอย่าง แบบปกติ 1</Description>
+        <DataItemList>
+            <DataItem>
+                <Code>1</Code>
+                <Text>ใช้งาน</Text>
+            </DataItem>
+            <DataItem>
+                <Code>2</Code>
+                <Text>ไม่ใช้งาน</Text>
+            </DataItem>
+        </DataItemList>
+    </Rdb>
+    
+    <Rdb>
+        <TranCode>example_rdb2</TranCode> 
+        <Description> rdb ตัวอย่าง แบบปกติ 2</Description>
+        <DataItemList>
+            <DataItem>
+                <Code>Y</Code>
+                <Text>ผ่าน</Text>
+            </DataItem>
+            <DataItem>
+                <Code>N</Code>
+                <Text>ไม่ผ่าน</Text>
+            </DataItem>
+        </DataItemList>
+    </Rdb>
+    
+    
+</RdbXML>

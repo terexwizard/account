@@ -1,0 +1,140 @@
+body{ 
+    margin:0; 
+    padding:0;
+    background-color:#ffffff;
+    font-family: Tahoma;
+    font-size: 13px;
+} 
+
+img { 
+border: 0; 
+}
+
+#bg{
+	background-image: url("#{resource['images/loginm2/login_bg.jpg']}");
+	background-color:#ffffff;
+	background-position:left top;
+	background-repeat:repeat-x;
+}
+
+.login_bg{
+	background-image: url("#{resource['images/loginm2/login_bg.jpg']}");
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+#login{
+	background-image: url("#{resource['images/loginm2/login_03.png']}");
+	background-repeat:no-repeat;
+	width:323px;
+	height:210px;
+}
+
+#news{
+	background-image: url("#{resource['images/loginm2/login_04.png']}");
+	background-repeat:no-repeat;
+	width:465px;
+	height:210px;
+}
+
+#news ul{
+	list-style-type: none;
+	padding: 0px;
+	width:350px;
+	height:120;
+	padding-top:30px;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap:break-word;
+}
+
+#news ul li{
+	background-image: url("#{resource['images/loginm2/bullet_orange.jpg']}");
+	background-repeat: no-repeat;
+	background-position: 0px 7px;
+	padding-left: 20px;
+}
+
+.loginfooterl{
+	background-image: url("#{resource['images/loginm2/login_05.png']}");
+	background-repeat:no-repeat;
+	width:323px;
+	height:76px;
+}
+
+.loginfooterr{
+	background-image: url("#{resource['images/loginm2/login_06.png']}");
+	background-repeat:no-repeat;
+}
+/*---------------------------------- Input_box ------------------------------------------------*/
+
+.input_box
+{
+	font:bold 12px Tahoma;
+	color: #1f4391;
+	background-color:#white;
+}
+
+/*---------------------------------- text ����� ------------------------------------------------*/
+
+.font_orange{
+	font: bold 12px tahoma;
+	color: #ffba13;
+	line-height:20px;
+}
+
+.font_white{
+	font: bold 12px tahoma;
+	color: #ffffff;
+	line-height:20px;
+}
+
+#copyright{
+	font: normal 11px tahoma;
+	color: #000000;
+	padding-top:10px;
+}
+
+/*---------------------------------- link ------------------------------------------------*/
+
+#login a:link, #login a:visited, #login a:active, #login a:hover,#link a:link, #link a:visited, #link a:active, #link a:hover
+{
+	font: normal 12px Tahoma !important;
+	color:#1f4391;
+	text-decoration:none;
+}
+
+.loginlink{
+    font-size: 12px !important;
+    font-family: Tahoma;
+}
+
+#link a:link, #link a:visited, #link a:active, #link a:hover{
+	background-image:url("#{resource['images/loginm2/bullet_blue.jpg']}");	
+	background-position:0px 3px;
+	padding-left:15px;
+	background-repeat:no-repeat;
+}
+
+.loginfooterl a:link, .loginfooterl a:visited, .loginfooterl a:active, .loginfooterl a:hover{
+	background-image:url("#{resource['images/loginm2/bullet_blue.jpg']}");	
+	background-position:0px 3px;
+	padding-left:15px;
+	background-repeat:no-repeat;
+}
+
+#login a:hover, #link a:hover, .loginfooterl a:hover
+{
+	color:#ff7f01;
+}
+
+#news a:link, #news a:visited, #news a:active, #news a:hover{
+	font: normal 12px Tahoma;
+	color:#ff7f01;
+	text-decoration:none;
+}
+
+#news a:hover{
+	color:#1f4391;
+}

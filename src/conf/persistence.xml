@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <!--<persistence-unit name="WebJPAT2REGCOM" transaction-type="JTA">
+    <jta-data-source>java:/comp/env/jdbc/rcdb</jta-data-source> -->
+  <persistence-unit name="purdc" transaction-type="RESOURCE_LOCAL">
+    <non-jta-data-source>java:/comp/env/jdbc/accdb</non-jta-data-source>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.scc.app.db.ScUserLog</class>
+    <class>com.scc.app.db.ScProcLog</class>
+    <class>com.scc.app.db.ScRolePermisstion</class>
+    <class>com.scc.app.db.ScSystem</class>
+    <class>com.scc.app.db.ScFunction</class>
+    <class>com.scc.app.db.ScMenu</class>
+    <class>com.scc.app.db.ScMenuDisp</class>
+    <class>com.scc.app.db.ScUserInfo</class>
+    <class>com.scc.app.db.ScUserPermitRole</class>
+    <class>com.scc.app.db.ScUserCertificate</class>
+    <class>com.scc.app.db.ScUser</class>
+    <class>com.scc.app.db.ScRole</class>
+    <class>com.scc.app.db.ScUserPermitFunction</class>
+    <class>com.scc.app.db.ScUserSession</class>
+    <class>com.scc.app.db.ScUserLogonLock</class>
+    <class>com.scc.app.db.ScConfig</class>
+    <class>com.scc.app.db.ScTrustedrootCa</class>
+    <class>com.scc.app.db.TbMessage</class>
+    <class>com.scc.dbd.efiling.db.Jobdata</class>
+    <class>com.scc.dbd.efiling.db.Jobstatus</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <validation-mode>NONE</validation-mode>
+    <properties>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.session.customizer" value="org.eclipse.persistence.logging.JPAEclipseLinkSessionCustomizer"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,92 @@
+
+
+.butt-login1 , .butt-changepassword1 , .butt-login2 , .butt-changepassword2 ,
+.butt-loginnew1 , .butt-changepasswordnew1 ,.butt-loginnew2 , .butt-changepasswordnew2
+{
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    border: 0px !important;
+    
+    height: 20px !important;
+    color: #007185 !important;
+}
+
+.butt-login1 
+{
+    width: 77px !important;
+    background-image: url("#{resource['images/login/btt_login.gif']}") !important;
+}
+
+.butt-login1.ui-state-hover
+{
+    background-image: url("#{resource['images/login/btt_login_over.gif']}") !important;
+}
+
+.butt-changepassword1
+{
+    width: 107px !important;
+    background-image: url("#{resource['images/login/btt_chgpass.gif']}") !important;
+}
+
+.butt-changepassword1.ui-state-hover
+{
+    background-image: url("#{resource['images/login/btt_chgpass_over.gif']}") !important;
+}
+
+.butt-login2 
+{
+    width: 77px !important;
+    background-image: url("#{resource['images/loginm2/btt_login.gif']}") !important;
+}
+
+.butt-login2.ui-state-hover
+{
+    background-image: url("#{resource['images/loginm2/btt_login_over.gif']}") !important;
+}
+
+.butt-changepassword2
+{
+    width: 107px !important;
+    background-image: url("#{resource['images/loginm2/btt_chgpass.gif']}") !important;
+}
+
+.butt-changepassword2.ui-state-hover
+{
+    background-image: url("#{resource['images/loginm2/btt_chgpass_over.gif']}") !important;
+}
+
+.butt-loginnew1 
+{
+    width: 77px !important;
+    background-image: url("#{resource['images/loginnew1/btt_login.gif']}") !important;
+}
+
+.butt-loginnew1.ui-state-hover
+{
+    background-image: url("#{resource['images/loginnew1/btt_login_over.gif']}") !important;
+}
+
+
+
+.ui-widget-overlay{
+    
+    width: 99.9% !important;
+    height: 99.9% !important;
+    
+}
+
+.f1-p-commandbutton-cs-cancel ,.f1-p-commandbutton-cs-ok{
+    height: 27px !important;
+    width: 105px !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.f1-p-commandbutton-cs-cancel{
+    background-image: url("#{resource['images/button/btt_cancel.gif']}") !important;
+}
+
+.f1-p-commandbutton-cs-ok{
+    background-image: url("#{resource['images/button/btt_ok.gif']}") !important;
+}
