@@ -1,0 +1,62 @@
+body{ 
+margin:0; 
+padding:0;
+background-color:#ffffff;
+} 
+
+.login_bg{
+	background-image: url("#{resource['images/loginnew2/login-bg.jpg']}");
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+img { 
+border: 0; 
+}
+
+#bg{
+	background-image: url("#{resource['images/loginnew2/login-bg.jpg']}");
+	background-color:#ffffff;
+	background-position:left top;
+	background-repeat:repeat-x;
+}
+
+#login{
+	background-image: url("#{resource['images/loginnew2/login-03.png']}");
+	background-repeat:no-repeat;
+	width:323px;
+	height:210px;
+}
+
+
+/*---------------------------------- Input_box ------------------------------------------------*/
+
+.input_box
+{
+	font:bold 12px Tahoma;
+	color: #1f4391;
+	background-color:#white;
+}
+
+/*---------------------------------- text ����� ------------------------------------------------*/
+
+#copyright{
+	font: normal 11px tahoma;
+	color: #000000;
+	padding-top:10px;
+}
+
+/*---------------------------------- link ------------------------------------------------*/
+
+#login a:link, #login a:visited, #login a:active, #login a:hover,#link a:link, #link a:visited, #link a:active, #link a:hover
+{
+	font: normal 12px Tahoma;
+	color:#1f4391;
+	text-decoration:none;
+}
+
+#login a:hover
+{
+	color:#ff7f01;
+}

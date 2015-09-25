@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueryXML>
+    
+<Query>
+    <TranCode>example_query1</TranCode>    
+    <Version>1</Version>
+    <Description> Sql ตัวอย่าง แบบปกติ 1</Description>
+    <Type></Type>
+    <SQL>
+        Select t.*, p.province_name 
+        <var name="province_code" >, t.province_code as newcode </var>
+        From blte0district t left outer join bltd0province p 
+             on ( t.province_code = p.province_code )
+
+        <where>
+            <var name="province_code" woper="and" > t.province_code = '<value/>' </var>
+            <var name="district_code" woper="and" > t.district_code = '<value/>' </var>
+            <var name="district_name" woper="and" > t.district_name like '<value/>%' </var>
+        </where>
+    </SQL>
+    <SQLOrderBy>
+        t.province_code, t.district_code
+    </SQLOrderBy>
+
+    <Params>
+        <Param>
+            <VarName>province_code</VarName>
+            <UIName>province_code</UIName>
+            <Operator></Operator>
+        </Param>
+        <Param>
+            <VarName>district_code</VarName>
+            <UIName>district_code</UIName>
+            <Operator></Operator>
+        </Param>
+        <Param>
+            <VarName>district_name</VarName>
+            <UIName>district_name</UIName>
+            <Operator></Operator>
+        </Param>
+    </Params>
+
+     <Displays>
+         <Columns>
+             <Column>
+                <FieldName>province_code</FieldName>
+                <Header>รหัสจังหวัด</Header>
+                <Style>width:100px;</Style>
+                <SortBy></SortBy>
+             </Column>
+             <Column>
+                <FieldName>province_name</FieldName>
+                <Header>ชื่อจังหวัด</Header>
+                <Style></Style>
+                <SortBy></SortBy>
+             </Column>
+             <Column>
+                <FieldName>district_code</FieldName>
+                <Header>รหัสแขวง/อำเภอ</Header>
+                <Style></Style>
+                <SortBy></SortBy>
+             </Column>
+             <Column>
+                <FieldName>district_name</FieldName>
+                <Header>ชื่อแขวง/อำเภอ</Header>
+                <Style></Style>
+                <SortBy></SortBy>
+             </Column>
+             
+
+         </Columns>
+
+     </Displays>
+</Query>
+
+<Query>
+    <TranCode>query_menu</TranCode>    
+    <Version>1</Version>
+    <Description>get menu  where t.menu_templ = 'T01'</Description>
+    <Type></Type>
+    <SQL>
+        select t.menu_templ,
+            t.menu_code,
+            t.menu_disp_code,
+            t.menu_disp_type,
+            t.menu_disp_sort,
+            m.menu_tname,
+            m.menu_sname,
+            f.func_sys,
+            f.func_tname,
+            f.func_initmode,
+            f.func_pathadd
+        from SC_MENU_DISP t left join SC_MENU m
+              on (t.menu_templ = m.menu_templ and t.menu_disp_code = m.menu_code)
+            left join SC_FUNCTION f
+              on (t.menu_disp_code = f.func_code)
+        
+        <where>
+            <var name="menutemplate" woper="and" > t.menu_templ = '<value/>' </var>
+            <var name="defaulttemplate" woper="and" > t.menu_templ = 'T01' </var>
+        </where>
+        
+        order by t.menu_code, t.menu_disp_sort, t.menu_disp_code
+    
+    </SQL>
+    <SQLOrderBy>
+    </SQLOrderBy>
+
+    <Params>
+        <Param>
+            <VarName>menutemplate</VarName>
+            <UIName>menutemplate</UIName>
+            <Operator></Operator>
+        </Param>
+        <Param>
+            <VarName>defaulttemplate</VarName>
+            <UIName>defaulttemplate</UIName>
+            <Operator></Operator>
+        </Param>
+    </Params>
+    
+     <Displays>
+         <Columns>
+         </Columns>
+     </Displays>
+</Query>
+
+<Query>
+    <TranCode>query_news</TranCode>    
+    <Version>1</Version>
+    <Description>get news</Description>
+    <Type></Type>
+    <SQL>
+         select *
+         from TB94_NEWS t
+         Order by t.news_seq
+    </SQL>
+    
+<!--     select *
+         from TB_NEWS t
+         Order by t.news_seq-->
+
+    <SQLOrderBy>
+    </SQLOrderBy>
+
+    <Params>
+    </Params>
+
+     <Displays>
+         <Columns>
+         </Columns>
+     </Displays>
+</Query>
+
+
+<Query>
+    <TranCode>query_privilege</TranCode>    
+    <Version>1</Version>
+    <Description>get user privilege</Description>
+    <Type></Type>
+    <SQL>
+         select *  from 
+            (
+            (
+                select  r.func_code
+
+                from SC_USER_PERMIT_ROLE t left join SC_ROLE_PERMISSTION r
+                    on (t.role_code = r.role_code)
+                where t.user_code = <var name="user" >'<value/>'</var>
+            )
+            union
+            (
+                select t.func_code
+
+                from SC_USER_PERMIT_FUNCTION t
+                 where t.user_code = <var name="user" >'<value/>'</var>
+            )
+            ) a
+            order by func_code 
+    </SQL>
+    <SQLOrderBy>
+    </SQLOrderBy>
+
+    <Params>
+        <Param>
+            <VarName>user</VarName>
+            <UIName>user</UIName>
+            <Operator></Operator>
+        </Param>
+    </Params>
+
+     <Displays>
+         <Columns>
+         </Columns>
+     </Displays>
+</Query>
+
+<!-- ************************** 
+    init_connection
+    select 1 from dual
+- -  ************************** -->
+
+<Query>
+    <TranCode>init_connection</TranCode>    
+    <Version>1</Version>
+    <Description>init_connection</Description>
+    <Type></Type>
+    <SQL>
+        select '1'
+       <where>
+        </where>
+    </SQL>
+    <SQLOrderBy>
+    </SQLOrderBy>
+
+    <Params>
+    </Params>
+
+     <Displays>
+         <Columns>  
+         </Columns>
+     </Displays>
+</Query>
+ 
+<!-- ************************** 
+    query_message
+- -  ************************** -->
+<Query>
+    <TranCode>query_message</TranCode>    
+    <Version>1</Version>
+    <Description></Description>
+    <Type></Type>
+    <RowLimit>-1</RowLimit>
+
+    <SQL>
+        Select '1'
+        
+        <where>
+        </where>
+    </SQL>
+    <SQLOrderBy>
+        
+    </SQLOrderBy>
+
+    <Params/>
+    <Displays/>
+
+</Query>
+
+
+
+</QueryXML>

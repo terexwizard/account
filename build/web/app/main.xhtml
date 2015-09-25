@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view beforePhase="#{bKBMenuL.beforePhase}" afterPhase="#{bKBMenuL.afterPhase}"  encoding="UTF-8" >
+    
+<c:set value="init" target="#{bKBMenuL}" property="initmain" ></c:set>
+    
+<h:head>
+    <title>ระบบสนับสนุนการดำเนินงานรับรองโครงการวิจัยและพัฒนาเทคโนโลยีของผู้ประกอบการภาคเอกชน (RDC Online)</title>
+    
+     <script type="text/javascript">   
+    //<![CDATA[    
+       var origCols;
+       var mt   = "#{bKBMenuL.menutemplate}";
+       var p    = "#{request.contextPath}";
+       
+       window.status    = " ";
+       
+       function lar(){
+           //alert('lar');
+           document.location    = p+"/index.xhtml";
+           
+           /*
+           #{bKBMenuL.menutemplate eq 'T01' ? 
+                   'document.location    = p+"/index.xhtml";':
+                   'document.location    = p+"/indexreg.xhtml";'}
+                           */
+       }
+       
+       function aar(){
+           //alert(parent.frames.length);
+           
+           parent.frames[0].acar();
+           
+           //var h    = parent.frames[0];
+           //h.acar();
+           //
+           //var h    = document.getElementById('frameh');
+           //alert(h);
+           
+       }
+       
+       function mn(name){
+           //alert('m2 '+name);
+           try{
+                parent.frames[0].mn(name);
+           }catch(e){}
+       }
+       
+       function logout(){
+           //alert('m2 '+name);
+           try{
+                parent.frames[0].logout();
+           }catch(e){}
+       }
+       
+       function goMenu(){
+           //alert("main.xhtml");
+           try{
+                parent.frames[1].emptypage();
+           }catch(e){}
+       }
+       
+       
+       function changeMenu(path){
+           
+           frm_main.document.location.href = path;
+           //frm_main.document.location.href = "epage.xhtml";
+           
+           
+           //if (path.indexOf("emptypage") != -1){
+               origCols = "250,*";
+           //}
+           
+           toggle_menu();
+       }
+       
+       function openmenuframe(){
+           origCols = "250,*";
+           toggle_menu();
+       }
+       
+       function resize(){
+           //window.resizeTo(500,500);
+           top.window.moveTo(0,0);
+           top.window.resizeTo ( (screen.availWidth*3/4) + 100,screen.availHeight );
+       }
+       
+       function fullscreen(){
+           top.window.moveTo(0,0);
+           top.window.resizeTo ( screen.availWidth,screen.availHeight );
+       }
+       
+       function toggle_menu(){
+            try{
+                if(origCols == undefined || origCols == ""){
+                    //Hide
+                    var frameset = document.getElementById("fs_data");
+                    origCols = frameset.cols;
+                    frameset.cols = "0, *";
+
+                    frm_top.setimgtogg(1);
+                }else{
+                    //show
+                    var frameset = document.getElementById("fs_data");
+                    frameset.cols = origCols;
+                    origCols = "";
+
+                    frm_top.setimgtogg(0);
+                }
+            }catch(e){}
+	}
+        
+
+    //]]>   
+    </script>
+</h:head>
+
+<ui:remove><!--
+<frameset rows="110px, *, 0, 0" frameborder="no" border="0"  framespacing="0" tabindex="-1" style="border-color:#c0c0c0" >
+        
+        <frame id="frameh" name="frameh" src="mainheader.xhtml" tabindex="-1" scrolling="no" />
+        <frame id="framem" name="framem" src="menu.xhtml" tabindex="-1" />
+        <frame id="framep" name="framep" src="mainpage.xhtml" tabindex="-1"  />
+
+        <frame src="" tabindex="-1" />
+</frameset>
+--></ui:remove>
+    <ui:remove><!--
+        
+      <frameset rows="15%, *, 5%">
+      <frame src="" />
+      <frameset COLS="20%,*">
+          <frame id="framem" name="framem" src="menu.xhtml"/>
+          <frame id="framep" name="framep" src="mainpage.xhtml" />
+      </frameset>
+      <frame src="" />
+    </frameset>
+        
+    --></ui:remove>
+
+
+ <ui:remove><!--
+    <p:layout fullPage="true" >
+
+        <p:layoutUnit position="north" size="130" resizable="true" closable="true" collapsible="true" gutter="0" style="border:0px;">
+            <ui:include src="mainheader.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="west" size="270" header="Menu" collapsible="true" gutter="0" style="border:0px;">
+
+            <ui:include src="menu.xhtml" />
+
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center" gutter="0" style="border:0px;">
+            <h:panelGroup id="centerContentPanel">
+                 #{bKBMenuL.page}/#{bKBMenuL.pt}/#{bKBMenuL.sp}/#{bKBMenuL.sk}/#{bKBMenuL.spt}
+                <c:if test="#{bKBMenuL.page ne ''}">
+                    <ui:include src="http://localhost:8080/ndapp/app/pageapp.xhtml?pt=#{bKBMenuL.pt}&amp;sp=#{bKBMenuL.sp}&amp;sk=#{bKBMenuL.sk}&amp;spt=#{bKBMenuL.spt}" >
+                        <ui:param name="init" value="ADD"/>
+                        <ui:param name="pt" value="#{bKBMenuL.pt}"/>
+                        <ui:param name="sp" value="#{bKBMenuL.sp}"/>
+                        <ui:param name="sk" value="#{bKBMenuL.sk}"/>
+                        <ui:param name="spt" value="#{bKBMenuL.spt}"/>
+                    </ui:include>
+                </c:if>
+            </h:panelGroup>   
+        </p:layoutUnit>
+
+    </p:layout>
+            
+//=======================
+            
+    <FRAMESET id="fs_mainpage" rows="90px,*,0px,0px"  frameborder="no" border="0"  framespacing="0" tabindex="-1">
+        <FRAME name="frm_top" src="mainheader.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" scrolling="no" noresize="noresize"/>
+	<FRAMESET id="fs_data" cols="250,*" frameborder="no" border="1"  framespacing="0" tabindex="-1">	
+		<FRAME id="frm_menu" name="frm_menu" src="menu.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" tabindex="-1" scrolling="yes" style="background-color: #007185;"/>
+		<FRAME name="frm_main" src="emptypage.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" />
+	</FRAMESET>
+        <FRAME name="frm_img" src="imagei/imagemain.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" scrolling="no" tabindex="-1" />
+        <FRAME id="frm_m" name="frm_m" src="mainm.xhtml?form1:usertoken=#{bKBMenuL.usertoken}"  tabindex="-1"  />
+    </FRAMESET>
+    
+            /////////////////////
+            
+    <FRAMESET id="fs_mainpage" rows="90px,*,0px"  frameborder="no" border="0"  framespacing="0" tabindex="-1">
+        <FRAME name="frm_top" src="mainheader.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" scrolling="no" noresize="noresize" tabindex="-1"/>
+	<FRAMESET id="fs_data" cols="250,*" frameborder="no" border="1"  framespacing="0" tabindex="-1">	
+		<FRAME id="frm_menu" name="frm_menu" src="menu.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" tabindex="-1" scrolling="yes" style="background-color: #007185;"/>
+		<FRAME name="frm_main" src="emptypage.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" />
+	</FRAMESET>
+        <FRAME name="frm_img" src="imagei/imagemain.xhtml?form1:usertoken=#{bKBMenuL.usertoken}" scrolling="no" tabindex="-1" />
+    </FRAMESET>
+            
+            
+--></ui:remove>
+
+
+    <FRAMESET id="fs_mainpage" rows="90,*,0"  frameborder="no" border="0"  framespacing="0" tabindex="-1">
+        <FRAME name="frm_top" src="mainheader.xhtml?#{bKBMenuL.bnheader}" scrolling="no" noresize="noresize" tabindex="-1"/>
+	<FRAMESET id="fs_data" cols="250,*" frameborder="no" border="1"  framespacing="0" tabindex="-1">	
+            <FRAME id="frm_menu" name="frm_menu" src="menu.xhtml?#{bKBMenuL.bnmenu}" tabindex="-1" scrolling="yes" style="background-color: #007185;"/>
+            <FRAME name="frm_main" src="emptypage.xhtml?#{bKBMenuL.bnmain}" />
+	</FRAMESET>
+        <FRAME name="frm_img" src="imagei/imagemain.xhtml?#{bKBMenuL.bnimage}" scrolling="no" tabindex="-1" />
+    </FRAMESET>
+
+</f:view>
+</html>
+

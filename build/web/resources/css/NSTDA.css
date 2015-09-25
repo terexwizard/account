@@ -1,0 +1,134 @@
+body{ 
+margin:0; 
+padding:0;
+/* background-color:#ffffff; */
+} 
+
+img { 
+border: 0; 
+}
+
+#login_bg{
+	background-image: url("#{resource['images/login/login_01.jpg']}");
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+.login_bg{
+	background-image: url("#{resource['images/login/login_01.jpg']}");
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+#login{
+	background-image: url("#{resource['images/login/login_04.png']}");
+	background-repeat:no-repeat;
+	width:294px;
+	height:425px;
+}
+
+#loginchg{
+	background-image: url("#{resource['images/login/login_04chg.png']}");
+	background-repeat:no-repeat;
+	width:294px;
+	height:425px;
+}
+
+#header_bg{
+	background-image: url("#{resource['images/header/index_03.jpg']}");
+	background-repeat:repeat-x;
+}
+
+#menu_bg{
+	background-image: url("#{resource['images/menu_bg.jpg']}");
+}
+
+.menu_bg{
+	background-image: url("#{resource['images/menu_bg.jpg']}");
+}
+
+#top_content_bg{
+	background-image: url(../images/index_05.jpg);
+	background-repeat:repeat-x;
+}
+
+#content_bg{
+	background-image:url(../images/image.jpg);
+	background-repeat:no-repeat;	
+	background-position:right bottom;
+}
+
+/*---------------------------------- Input_box ------------------------------------------------*/
+
+.input_box
+{
+	font:bold 12px Tahoma;
+	color: #163371;
+	background-color:#white;
+}
+
+/*---------------------------------- text ����� ------------------------------------------------*/
+
+.font_orange{
+	font: bold 12px tahoma;
+	color: #ffba13;
+	line-height:20px;
+}
+
+.font_white{
+	font: bold 12px tahoma;
+	color: #ffffff;
+	line-height:20px;
+}
+
+.font_blue{
+	font: bold 12px tahoma;
+	color: #2b9905;
+	line-height:20px;
+}
+
+#copyright{
+	font: normal 11px tahoma;
+	color: #000000;
+}
+
+/*-------------------------------------- link --------------------------------------------------*/
+
+a:link, a:visited, a:active, a:hover{
+	font: bold 12px tahoma;
+	color:#ffca4b;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#ffffff;
+}
+
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover{
+	background-image:url(../images/bullet01.gif);	
+	background-position:0px 3px;
+	padding-left:15px;
+	font: bold 12px Tahoma;
+}
+
+.submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover
+{
+	background-image:url(../images/bullet02.gif);
+	background-position:17px 3px;
+	padding-left:32px;
+	font: normal 12px Tahoma;
+}
+
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover, .submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover{
+	background-repeat:no-repeat;
+	color: #ffffff;
+	text-decoration: none;	
+	line-height:20px;
+}
+
+.headmenu a:hover, .submenu a:hover
+{
+	color: #ffba13;
+}

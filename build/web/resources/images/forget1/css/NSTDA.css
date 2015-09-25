@@ -1,0 +1,218 @@
+
+table tr {
+    border: 0px solid white !important;
+}
+
+table td {
+    padding: 5px;
+    text-align: left;
+    font-family: Tahoma;
+    font-size: 13px; 
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+.redstar
+{
+	font:bold 13px/25px Tahoma;
+	color: red;
+        margin-left: 3px;
+}
+
+
+A:link , A:visited , A:active
+{
+	font:normal 12px Tahoma;
+	color: #ffffff;	
+	text-decoration: none;
+}
+
+A:hover
+{
+	font:normal 12px Tahoma;
+	color: #fffd31;	
+	text-decoration: none;	
+}
+
+
+body{ 
+margin:0; 
+padding:0;
+background-color:#ffffff;
+} 
+
+img { 
+border: 0; 
+}
+
+.marquee {
+height:40%;
+padding:5px;
+/*background-color: yellowgreen;
+border: 20px solid rgba(0,0,0,0.3);*/
+white-space: nowrap; 
+overflow: hidden;
+
+/* Safari and Chrome  */
+overflow-x:-webkit-marquee;
+-webkit-marquee-direction: backwards;
+-webkit-marquee-style: scroll;
+-webkit-marquee-speed: slow;
+-webkit-marquee-increment: small;
+-webkit-marquee-repetition: infinite;
+
+/* W3C  */
+overflow-x: marquee-line;
+marquee-direction: forward;
+marquee-style: scroll;
+marquee-speed: slow;
+marquee-play-count: infinite;
+}
+
+
+#login_bg{
+	background-image: url(../images/bg.jpg);
+	background-color:#ffffff;
+	vertical-align:top;
+	background-repeat:repeat-x;
+}
+
+#login01{
+	background-image: url(../images/login_01.png);
+	background-repeat:no-repeat;
+	width:498px;
+	height:408px;
+}
+
+#login02{
+	background-image: url(../images/login_02.png);
+	background-repeat:no-repeat;
+	width:317px;
+	height:408px;
+}
+
+
+#header_bg{
+	background-image: url(../images/index_03.jpg);
+	background-repeat:repeat-x;
+}
+
+#inner_bg{
+	background-image: url("#{resource['images/forget1/bg_change.jpg']}"); 
+	background-repeat:repeat-x;
+}
+
+#menu_bg{
+	background-image: url(../images/menu_bg.jpg);
+}
+
+#top_content_bg{
+	background-image: url(../images/index_05.jpg);
+	background-repeat:repeat-x;
+}
+
+#content_bg{
+	background-image:url(../images/image.jpg);
+	background-repeat:no-repeat;	
+	background-position:right bottom;
+}
+
+
+#header{
+	background-image:url("#{resource['images/forget1/header_nstda.jpg']}");
+	background-repeat:no-repeat;	
+}
+
+.mark
+{
+	font:bold 12px Tahoma;
+	color: #dd1717;
+}
+
+/*---------------------------------- Input_box ------------------------------------------------*/
+
+.input_box
+{
+	font:bold 12px Tahoma;
+	color: #b94d04;
+	background-color:#white;
+}
+
+/*---------------------------------- text ����� ------------------------------------------------*/
+
+
+.font_white{
+	font: bold 12px tahoma;
+	color: #ffffff;
+	line-height:20px;
+}
+
+
+.font_news{
+	font: normal 12px tahoma;
+	color: #104eac;
+	line-height:20px;
+}
+
+
+.font_flied{
+	font: normal 13px tahoma;
+	color: #1149a5;
+}
+
+.font_header{
+	font: bold 14px tahoma;
+	color: #1149a5;
+}
+
+
+
+#copyright{
+	font: normal 11px tahoma;
+	color: #000000;
+}
+
+/*-------------------------------------- link --------------------------------------------------*/
+
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover{
+	background-image:url(../images/bullet01.gif);	
+	background-position:0px 3px;
+	padding-left:15px;
+	font: bold 12px Tahoma;
+}
+
+.submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover
+{
+	background-image:url(../images/bullet02.gif);
+	background-position:17px 3px;
+	padding-left:32px;
+	font: normal 12px Tahoma;
+}
+
+.headmenu a:link, .headmenu a:visited, .headmenu a:active, .headmenu a:hover, .submenu a:link, .submenu a:visited, .submenu a:active, .submenu a:hover{
+	background-repeat:no-repeat;
+	color: #ffffff;
+	text-decoration: none;	
+	line-height:20px;
+}
+
+.headmenu a:hover, .submenu a:hover
+{
+	color: #ffba13;
+}
+
+.forget:link , #forget:visited , #forget:active
+{
+	font:normal 13px/155% Tahoma;
+	color:#FFFFFF;	
+	text-decoration: none;
+}
+
+.forget:hover
+{
+    font:normal 13px/155% Tahoma;
+	color: #fff776;	
+	text-decoration: none;
+	}
+
+#navlist { list-style-image: url(../images/arrow.gif); }

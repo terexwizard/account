@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/account">
+  <!--  
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" 
+            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" initialSize="5" 
+            jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" 
+            jmxEnabled="true" logAbandoned="true" maxActive="100" maxWait="10000" 
+            minEvictableIdleTimeMillis="30000" minIdle="5" name="jdbc/accdb" 
+            password="root" removeAbandoned="true" removeAbandonedTimeout="60" 
+            testOnBorrow="true" testOnReturn="false" testWhileIdle="true" 
+            timeBetweenEvictionRunsMillis="30000" type="javax.sql.DataSource" 
+            url="jdbc:mysql://localhost:3306/accountdb?useUnicode=yes&amp;characterEncoding=UTF-8" 
+            username="root" validationInterval="30000" validationQuery="SELECT 1"/>
+          
+<Resource name="jdbc/rdcdb"
+       auth="Container"
+       type="javax.sql.DataSource"
+       factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory" 
+       maxActive="100"
+       maxIdle="30"
+       maxWait="10000"
+       username="sa"
+       password="sa."
+       driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+       url="jdbc:sqlserver://172.17.4.137:1433;databaseName=pay_sccdb"/>
+       -->
+       
+       
+            <Resource name="jdbc/accdb"
+	         auth="Container"
+              type="javax.sql.DataSource" 
+              factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/accountdb?useUnicode=yes&amp;characterEncoding=UTF-8"
+              username="root"
+              password="root"
+              maxActive="150"
+              maxIdle="30"
+              maxWait="-1"
+                 />  
+</Context>
