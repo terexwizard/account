@@ -25,7 +25,7 @@
        url="jdbc:sqlserver://172.17.4.137:1433;databaseName=pay_sccdb"/>
        -->
        
-       
+       <!-- Tomcat7
             <Resource name="jdbc/accdb"
 	         auth="Container"
               type="javax.sql.DataSource" 
@@ -38,4 +38,10 @@
               maxIdle="30"
               maxWait="-1"
                  />  
+         -->        
+                 
+          <Resource name="jdbc/accdb" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/accountdb?useUnicode=yes&amp;characterEncoding=UTF-8"/>
 </Context>
