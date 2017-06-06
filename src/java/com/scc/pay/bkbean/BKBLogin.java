@@ -445,7 +445,7 @@ public class BKBLogin extends BKBLoginSA {
         
         }
             
-        tk  = SecurityUtil.createSecureRandom(32);
+        //tk  = SecurityUtil.createSecureRandom(32);
         
     }
     

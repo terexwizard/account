@@ -70,6 +70,8 @@
        
        function changeMenu(path){
            
+           fullscreen();
+           
            frm_main.document.location.href = path;
            //frm_main.document.location.href = "epage.xhtml";
            
@@ -206,7 +208,7 @@
     <FRAMESET id="fs_mainpage" rows="90,*,0"  frameborder="no" border="0"  framespacing="0" tabindex="-1">
         <FRAME name="frm_top" src="mainheader.xhtml?#{bKBMenuL.bnheader}" scrolling="no" noresize="noresize" tabindex="-1"/>
 	<FRAMESET id="fs_data" cols="250,*" frameborder="no" border="1"  framespacing="0" tabindex="-1">	
-            <FRAME id="frm_menu" name="frm_menu" src="menu.xhtml?#{bKBMenuL.bnmenu}" tabindex="-1" scrolling="yes" style="background-color: #007185;"/>
+            <FRAME id="frm_menu" name="frm_menu" src="menu.xhtml?#{bKBMenuL.bnmenu}" tabindex="-1" scrolling="yes" style="background-color: #21b80e;"/>
             <FRAME name="frm_main" src="emptypage.xhtml?#{bKBMenuL.bnmain}" />
 	</FRAMESET>
         <FRAME name="frm_img" src="imagei/imagemain.xhtml?#{bKBMenuL.bnimage}" scrolling="no" tabindex="-1" />
